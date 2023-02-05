@@ -2,8 +2,9 @@ module spaceship_aar
 
 go 1.19
 
+require github.com/SuzukiHonoka/spaceship v1.4.6
+
 require (
-	github.com/SuzukiHonoka/spaceship v1.4.6-rc // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	golang.org/x/mobile v0.0.0-20221110043201-43a038452099 // indirect

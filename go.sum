@@ -1,9 +1,10 @@
-github.com/SuzukiHonoka/spaceship v1.4.6-rc h1:qluK7lYLsgI/wwFyRXU1Ye9LJmQTZ3U8nsPE7lRo7ak=
-github.com/SuzukiHonoka/spaceship v1.4.6-rc/go.mod h1:/1FFphcj9KpIm+kgIia6R5PdPszpnrwjujrwR3qa7vM=
+github.com/SuzukiHonoka/spaceship v1.4.6 h1:FwS/1qlPGOogfF3JJn2Wtg2jyOnbGQGKQRyCNEgf7Bo=
+github.com/SuzukiHonoka/spaceship v1.4.6/go.mod h1:g+IixkCaAbeCJ5z7qf3i9ec+6C7rNuU0jfCl9ziZxYs=
 github.com/golang/protobuf v1.5.0/go.mod h1:FsONVRAS9T7sI+LIUmWTfcYkHO4aIWwzhcaSAoJOfIk=
 github.com/golang/protobuf v1.5.2 h1:ROPKBNFfQgOUMifHyP+KYbvpjbdoFNs+aK7DXlji0Tw=
 github.com/golang/protobuf v1.5.2/go.mod h1:XVQd3VNwM+JqD3oG2Ue2ip4fOMUkwXdXDdiuN0vRsmY=
 github.com/google/go-cmp v0.5.5/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
+github.com/google/go-cmp v0.5.9 h1:O2Tfq5qg4qc4AmwVlvv0oLiVAGB7enBSJ2x2DqQFi38=
 github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
 github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 golang.org/x/mobile v0.0.0-20221110043201-43a038452099 h1:aIu0lKmfdgtn2uTj7JI2oN4TUrQvgB+wzTPO23bCKt8=
