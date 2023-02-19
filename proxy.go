@@ -10,7 +10,17 @@ import (
 	"github.com/SuzukiHonoka/spaceship/pkg/logger"
 )
 
-func Launch(s string) {
+type LauncherWrapper struct {
+	*api.Launcher
+}
+
+func NewLauncher() *LauncherWrapper {
+	return &LauncherWrapper{
+		api.NewLauncher(),
+	}
+}
+
+func (l *LauncherWrapper) Launch(s string) {
 	var cfg Config
 	_ = json.Unmarshal([]byte(s), &cfg)
 	c := &config.MixedConfig{
@@ -36,17 +46,17 @@ func Launch(s string) {
 			Buffer: uint16(cfg.Buffer),
 		},
 	}
-	api.Launch(c)
+	l.Launcher.Launch(c)
 }
 
-func LaunchFromFile(path string) {
-	api.LaunchFromFile(path)
+func (l *LauncherWrapper) LaunchFromFile(path string) {
+	l.Launcher.LaunchFromFile(path)
 }
 
-func LaunchFromString(c string) {
-	api.LaunchFromString(c)
+func (l *LauncherWrapper) LaunchFromString(c string) {
+	l.Launcher.LaunchFromString(c)
 }
 
-func Stop() {
-	api.Stop()
+func (l *LauncherWrapper) Stop() {
+	l.Launcher.Stop()
 }

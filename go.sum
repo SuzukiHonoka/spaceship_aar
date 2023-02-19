@@ -1,5 +1,5 @@
-github.com/SuzukiHonoka/spaceship v1.4.8-1 h1:XMElxR/xLvOtrThgGHAMXWqOERQXyLhKII9vKh9WFSg=
-github.com/SuzukiHonoka/spaceship v1.4.8-1/go.mod h1:t3ETX7H2AyhzHtwQIBSMN7U1OAA5kEa5iCc1guzyUWE=
+github.com/SuzukiHonoka/spaceship v1.4.9 h1:JQ2LrdLVobcfMrXR9kHuynhhKcqnKbpc0/l8/z2pC7M=
+github.com/SuzukiHonoka/spaceship v1.4.9/go.mod h1:t3ETX7H2AyhzHtwQIBSMN7U1OAA5kEa5iCc1guzyUWE=
 github.com/golang/protobuf v1.5.0/go.mod h1:FsONVRAS9T7sI+LIUmWTfcYkHO4aIWwzhcaSAoJOfIk=
 github.com/golang/protobuf v1.5.2 h1:ROPKBNFfQgOUMifHyP+KYbvpjbdoFNs+aK7DXlji0Tw=
 github.com/golang/protobuf v1.5.2/go.mod h1:XVQd3VNwM+JqD3oG2Ue2ip4fOMUkwXdXDdiuN0vRsmY=
