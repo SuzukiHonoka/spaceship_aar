@@ -20,7 +20,7 @@ func NewLauncher() *LauncherWrapper {
 	}
 }
 
-func (l *LauncherWrapper) Launch(s string) {
+func (l *LauncherWrapper) Launch(s string) bool {
 	var cfg Config
 	_ = json.Unmarshal([]byte(s), &cfg)
 	c := &config.MixedConfig{
@@ -46,15 +46,15 @@ func (l *LauncherWrapper) Launch(s string) {
 			Buffer: uint16(cfg.Buffer),
 		},
 	}
-	l.Launcher.Launch(c)
+	return l.Launcher.Launch(c)
 }
 
-func (l *LauncherWrapper) LaunchFromFile(path string) {
-	l.Launcher.LaunchFromFile(path)
+func (l *LauncherWrapper) LaunchFromFile(path string) bool {
+	return l.Launcher.LaunchFromFile(path)
 }
 
-func (l *LauncherWrapper) LaunchFromString(c string) {
-	l.Launcher.LaunchFromString(c)
+func (l *LauncherWrapper) LaunchFromString(c string) bool {
+	return l.Launcher.LaunchFromString(c)
 }
 
 func (l *LauncherWrapper) Stop() {
