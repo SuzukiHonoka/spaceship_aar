@@ -7,8 +7,13 @@ You may use it in your Android program, that's pretty convenient than executing 
 ## Generate
 You have to ensure that you have gomobile already installed in your go mod, then execute the following:
 
+- for multi platform
 ```bash
-gomobile bind -target android/arm64 .
+gomobile bind -target "android/arm64,android/amd64" -ldflags "-s -w" .
+```
+- for specified platform
+```bash
+gomobile bind -target android/arm64 -ldflags "-s -w" .
 ```
  
 ## Limitation
