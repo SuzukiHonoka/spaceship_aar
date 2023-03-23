@@ -15,6 +15,7 @@ type Config struct {
 	Mux         int    `json:"mux"`
 	Buffer      int    `json:"buffer"`
 	DNS         string `json:"dns"`
+	IPv6        bool   `json:"ipv6"`
 	CA          string `json:"ca"`
 	Log         string `json:"log"`
 }

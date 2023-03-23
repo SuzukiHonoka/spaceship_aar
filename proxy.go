@@ -44,6 +44,7 @@ func (l *LauncherWrapper) Launch(s string) bool {
 		Server: server.Server{
 			Path:   cfg.Path,
 			Buffer: uint16(cfg.Buffer),
+			IPv6:   cfg.IPv6,
 		},
 	}
 	return l.Launcher.Launch(c)
