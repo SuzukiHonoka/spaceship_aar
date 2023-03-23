@@ -2,10 +2,16 @@
 Using gomobile to generate the native AAR for Android. (or IOS?)  
 
 ## Usage
-You may use it in your Android program, that's pretty convenient than executing the program binary.
+You may use it in your program, that's pretty convenient than executing the binary package.
 
 ## Generate
-You have to ensure that you have gomobile already installed in your go mod, then execute the following:
+You have to ensure that you have gomobile already installed in your go mod, or using the following command to install it.
+- for install gomobile in this project
+```bash
+go get golang.org/x/mobile/bind
+```
+
+Now, you can start binding this library.
 
 - for multi platform
 ```bash
