@@ -2,8 +2,8 @@ package spaceship_aar
 
 import "encoding/json"
 
-// since go-mobile only support basic types, some fields are minimized
-
+// Config is a specified client-oriented configuration.
+// Note that since go-mobile only support very basic types, some fields are minimized or omitted
 type Config struct {
 	Path        string `json:"path"`
 	Host        string `json:"host"`
@@ -20,6 +20,7 @@ type Config struct {
 	Log         string `json:"log"`
 }
 
+// ToJson converts Config to string in json format
 func (c *Config) ToJson() string {
 	b, err := json.Marshal(c)
 	if err != nil {

@@ -10,16 +10,20 @@ import (
 	"github.com/SuzukiHonoka/spaceship/pkg/logger"
 )
 
+// LauncherWrapper wraps the api.Launcher and provides some proxy methods.
 type LauncherWrapper struct {
 	*api.Launcher
 }
 
+// NewLauncher creates a new *LauncherWrapper.
 func NewLauncher() *LauncherWrapper {
 	return &LauncherWrapper{
 		api.NewLauncher(),
 	}
 }
 
+// Launch parses the particular cfg string to the client-oriented configuration and launch the inner launcher.
+// Note that this is not native configuration format. if using native, go for LaunchFromString instead.
 func (l *LauncherWrapper) Launch(s string) bool {
 	var cfg Config
 	_ = json.Unmarshal([]byte(s), &cfg)
@@ -50,14 +54,17 @@ func (l *LauncherWrapper) Launch(s string) bool {
 	return l.Launcher.Launch(c)
 }
 
+// LaunchFromFile reads the native configuration string from file and passes to the inner launcher.
 func (l *LauncherWrapper) LaunchFromFile(path string) bool {
 	return l.Launcher.LaunchFromFile(path)
 }
 
+// LaunchFromString passes the native configuration string to the inner launcher.
 func (l *LauncherWrapper) LaunchFromString(c string) bool {
 	return l.Launcher.LaunchFromString(c)
 }
 
+// Stop releases the blocking from inner api
 func (l *LauncherWrapper) Stop() {
 	l.Launcher.Stop()
 }
