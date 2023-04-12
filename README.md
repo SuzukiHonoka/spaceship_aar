@@ -1,26 +1,38 @@
 # Spaceship AAR
-Using gomobile to generate the native AAR for Android. (or IOS?)  
+Using gomobile to generate the native AAR for Android. 
 
-## Usage
-You may use it in your program, that's pretty convenient than executing the binary package.
+## Dependencies
+- Android NDK
+- gomobile
+
+After you installed gomobile, you should use following command to initialize it:
+```bash
+go install golang.org/x/mobile/cmd/gomobile@latest
+gomobile init
+```
 
 ## Generate
 You have to ensure that you have gomobile already installed in your go mod, or using the following command to install it.
-- for install gomobile in this project
+
+**Install gomobile in this project**
 ```bash
 go get golang.org/x/mobile/bind
 ```
 
 Now, you can start binding this library.
 
-- for multi platform
+**Binding multi platform**
 ```bash
-gomobile bind -target "android/arm64,android/amd64" -ldflags "-s -w" .
+gomobile bind -androidapi 29 -target "android/arm64,android/amd64" -ldflags "-s -w" .
 ```
-- for specified platform
+
+**Binding specified platform**
 ```bash
-gomobile bind -target android/arm64 -ldflags "-s -w" .
+gomobile bind -androidapi 29 -target android/arm64 -ldflags "-s -w" .
 ```
+
+## Usage
+You may use it in your program, that's pretty convenient than executing the binary file.
  
 ## Limitation
 Since the gomobile only support very basic few types in class converter, it's better to pass a full configuration string
