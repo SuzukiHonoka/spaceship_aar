@@ -2,7 +2,7 @@ module spaceship_aar
 
 go 1.20
 
-require github.com/SuzukiHonoka/spaceship v1.5.3
+require github.com/SuzukiHonoka/spaceship v1.5.7
 
 require (
 	github.com/golang/protobuf v1.5.3 // indirect
