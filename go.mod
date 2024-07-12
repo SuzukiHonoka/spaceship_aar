@@ -2,7 +2,7 @@ module spaceship_aar
 
 go 1.22
 
-require github.com/SuzukiHonoka/spaceship v1.8.2
+require github.com/SuzukiHonoka/spaceship v1.8.2-1
 
 require (
 	github.com/google/uuid v1.6.0 // indirect
