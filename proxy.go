@@ -2,6 +2,8 @@ package spaceship_aar
 
 import (
 	"encoding/json"
+	"log"
+
 	"github.com/SuzukiHonoka/spaceship/api"
 	"github.com/SuzukiHonoka/spaceship/pkg/config"
 	"github.com/SuzukiHonoka/spaceship/pkg/config/client"
@@ -26,7 +28,10 @@ func NewLauncher() *LauncherWrapper {
 // Note that this is not native configuration format. if using native, go for LaunchFromString instead.
 func (l *LauncherWrapper) Launch(s string) bool {
 	var cfg Config
-	_ = json.Unmarshal([]byte(s), &cfg)
+	if err := json.Unmarshal([]byte(s), &cfg); err != nil {
+		log.Printf("launch: unmarshal cfg failed, err=%s", err)
+		return false
+	}
 	c := &config.MixedConfig{
 		Role: config.RoleClient,
 		DNS: &dns.DNS{
