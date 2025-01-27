@@ -2,7 +2,7 @@ module spaceship_aar
 
 go 1.23
 
-require github.com/SuzukiHonoka/spaceship v1.9.2
+require github.com/SuzukiHonoka/spaceship v1.9.3
 
 require (
 	github.com/google/uuid v1.6.0 // indirect
@@ -13,7 +13,7 @@ require (
 	golang.org/x/sys v0.29.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
 	golang.org/x/tools v0.29.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20250106144421-5f5ef82da422 // indirect
-	google.golang.org/grpc v1.69.4 // indirect
-	google.golang.org/protobuf v1.36.2 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20250124145028-65684f501c47 // indirect
+	google.golang.org/grpc v1.70.0 // indirect
+	google.golang.org/protobuf v1.36.4 // indirect
 )

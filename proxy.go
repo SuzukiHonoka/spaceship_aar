@@ -41,7 +41,7 @@ func (l *LauncherWrapper) Launch(s string) bool {
 			cfg.CA,
 		},
 		LogMode: logger.Mode(cfg.Log),
-		Client: client.Client{
+		Client: &client.Client{
 			ServerAddr:      cfg.ServerAddr,
 			Host:            cfg.Host,
 			UUID:            cfg.Uuid,
@@ -51,7 +51,7 @@ func (l *LauncherWrapper) Launch(s string) bool {
 			Mux:             uint8(cfg.Mux),
 			EnableTLS:       cfg.Tls,
 		},
-		Server: server.Server{
+		Server: &server.Server{
 			Path:   cfg.Path,
 			Buffer: uint16(cfg.Buffer),
 			IPv6:   cfg.IPv6,
