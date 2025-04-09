@@ -48,6 +48,7 @@ func (l *LauncherWrapper) Launch(s string) bool {
 			ListenSocks:     cfg.ListenSocks,
 			ListenSocksUnix: cfg.ListenSocksUnix,
 			ListenHttp:      cfg.ListenHttp,
+			BasicAuth:       cfg.BasicAuth,
 			Mux:             uint8(cfg.Mux),
 			EnableTLS:       cfg.Tls,
 		},
