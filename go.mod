@@ -3,14 +3,12 @@ module spaceship_aar
 go 1.24
 
 require (
-	github.com/SuzukiHonoka/spaceship v1.9.9
+	github.com/SuzukiHonoka/spaceship/v2 v2.0.4
 	github.com/docker/go-units v0.5.0
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510
 	github.com/gorilla/schema v1.4.1
 	github.com/xjasonlyu/tun2socks/v2 v2.6.0-beta
-	golang.org/x/sys v0.32.0
-	golang.zx2c4.com/wireguard v0.0.0-20231211153847-12269c276173
-	gvisor.dev/gvisor v0.0.0-20250416204613-04a61c0f3bd5
+	gvisor.dev/gvisor v0.0.0-20250517012954-f63734aabe5e
 )
 
 require (
@@ -25,16 +23,18 @@ require (
 	go.uber.org/atomic v1.11.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.27.0 // indirect
-	golang.org/x/crypto v0.37.0 // indirect
-	golang.org/x/mobile v0.0.0-20250408133729-978277e7eaf7 // indirect
+	golang.org/x/crypto v0.38.0 // indirect
+	golang.org/x/mobile v0.0.0-20250506005352-78cd7a343bde // indirect
 	golang.org/x/mod v0.24.0 // indirect
-	golang.org/x/net v0.39.0 // indirect
-	golang.org/x/sync v0.13.0 // indirect
-	golang.org/x/text v0.24.0 // indirect
+	golang.org/x/net v0.40.0 // indirect
+	golang.org/x/sync v0.14.0 // indirect
+	golang.org/x/sys v0.33.0 // indirect
+	golang.org/x/text v0.25.0 // indirect
 	golang.org/x/time v0.11.0 // indirect
-	golang.org/x/tools v0.32.0 // indirect
+	golang.org/x/tools v0.33.0 // indirect
 	golang.zx2c4.com/wintun v0.0.0-20230126152724-0fa3db229ce2 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20250414145226-207652e42e2e // indirect
-	google.golang.org/grpc v1.71.1 // indirect
+	golang.zx2c4.com/wireguard v0.0.0-20250515145403-1571e0fbae8e // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20250512202823-5a2f75b736a9 // indirect
+	google.golang.org/grpc v1.72.1 // indirect
 	google.golang.org/protobuf v1.36.6 // indirect
 )
