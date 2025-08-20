@@ -14,14 +14,14 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip"
 	"gvisor.dev/gvisor/pkg/tcpip/stack"
 
-	"github.com/xjasonlyu/tun2socks/v2/core"
-	"github.com/xjasonlyu/tun2socks/v2/core/device"
-	"github.com/xjasonlyu/tun2socks/v2/core/option"
-	"github.com/xjasonlyu/tun2socks/v2/dialer"
-	"github.com/xjasonlyu/tun2socks/v2/log"
-	"github.com/xjasonlyu/tun2socks/v2/proxy"
-	"github.com/xjasonlyu/tun2socks/v2/restapi"
-	"github.com/xjasonlyu/tun2socks/v2/tunnel"
+	"github.com/SuzukiHonoka/tun2socks/v2/core"
+	"github.com/SuzukiHonoka/tun2socks/v2/core/device"
+	"github.com/SuzukiHonoka/tun2socks/v2/core/option"
+	"github.com/SuzukiHonoka/tun2socks/v2/dialer"
+	"github.com/SuzukiHonoka/tun2socks/v2/log"
+	"github.com/SuzukiHonoka/tun2socks/v2/proxy"
+	"github.com/SuzukiHonoka/tun2socks/v2/restapi"
+	"github.com/SuzukiHonoka/tun2socks/v2/tunnel"
 )
 
 type Engine struct {
@@ -136,6 +136,7 @@ func (e *Engine) general(k *EngineKey) error {
 		}
 		tunnel.T().SetUDPTimeout(k.UDPTimeout)
 	}
+	tunnel.T().SetUDPDisabled(k.UDPDisabled)
 	return nil
 }
 

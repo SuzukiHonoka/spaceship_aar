@@ -11,11 +11,11 @@ import (
 
 	"github.com/gorilla/schema"
 
-	"github.com/xjasonlyu/tun2socks/v2/core/device"
-	"github.com/xjasonlyu/tun2socks/v2/core/device/fdbased"
-	"github.com/xjasonlyu/tun2socks/v2/core/device/tun"
-	"github.com/xjasonlyu/tun2socks/v2/proxy"
-	"github.com/xjasonlyu/tun2socks/v2/proxy/proto"
+	"github.com/SuzukiHonoka/tun2socks/v2/core/device"
+	"github.com/SuzukiHonoka/tun2socks/v2/core/device/fdbased"
+	"github.com/SuzukiHonoka/tun2socks/v2/core/device/tun"
+	"github.com/SuzukiHonoka/tun2socks/v2/proxy"
+	"github.com/SuzukiHonoka/tun2socks/v2/proxy/proto"
 )
 
 func parseRestAPI(s string) (*url.URL, error) {
