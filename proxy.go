@@ -3,6 +3,7 @@ package spaceship_aar
 import (
 	"encoding/json"
 	"fmt"
+
 	"github.com/SuzukiHonoka/spaceship/v2/api"
 	"github.com/SuzukiHonoka/spaceship/v2/pkg/config"
 	"github.com/SuzukiHonoka/spaceship/v2/pkg/config/client"
@@ -85,6 +86,7 @@ func (l *LauncherWrapper) Launch(s string) error {
 			ListenSocks:     cfg.ListenSocks,
 			ListenSocksUnix: cfg.ListenSocksUnix,
 			ListenHttp:      cfg.ListenHttp,
+			ListenDns:       cfg.ListenDns,
 			BasicAuth:       cfg.BasicAuth,
 			Mux:             uint8(cfg.Mux),
 			EnableTLS:       cfg.Tls,

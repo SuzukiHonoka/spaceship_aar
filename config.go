@@ -12,6 +12,7 @@ type Config struct {
 	ListenSocks     string   `json:"listen_socks"`
 	ListenSocksUnix string   `json:"listen_socks_unix"`
 	ListenHttp      string   `json:"listen_http"`
+	ListenDns       string   `json:"listen_dns"`
 	BasicAuth       []string `json:"basic_auth"`
 	Tls             bool     `json:"tls"`
 	Mux             int      `json:"mux"`
