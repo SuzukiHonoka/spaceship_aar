@@ -9,6 +9,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/SuzukiHonoka/tun2socks/v2/dns"
 	"github.com/docker/go-units"
 	"github.com/google/shlex"
 	"gvisor.dev/gvisor/pkg/tcpip"
@@ -73,6 +74,7 @@ func (e *Engine) start() error {
 
 	for _, f := range []func(*EngineKey) error{
 		e.general,
+		e.dnsConfig,
 		e.restAPI,
 		e.netstack,
 	} {
@@ -165,6 +167,19 @@ func (e *Engine) restAPI(k *EngineKey) error {
 			}
 		}()
 		log.Infof("[RESTAPI] serve at: %s", u)
+	}
+	return nil
+}
+
+func (e *Engine) dnsConfig(k *EngineKey) error {
+	if k.DNSAddr != "" {
+		log.Infof("[DNS] hijacking enabled, using DNS server: %s", k.DNSAddr)
+		dns.SetConfig(&dns.Config{
+			Address: k.DNSAddr,
+		})
+	} else {
+		log.Infof("[DNS] hijacking disabled")
+		dns.SetConfig(nil)
 	}
 	return nil
 }
