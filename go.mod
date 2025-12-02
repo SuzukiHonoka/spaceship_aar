@@ -4,7 +4,7 @@ go 1.25
 
 require (
 	github.com/SuzukiHonoka/spaceship/v2 v2.0.16
-	github.com/SuzukiHonoka/tun2socks/v2 v2.6.4
+	github.com/SuzukiHonoka/tun2socks/v2 v2.6.5
 	github.com/docker/go-units v0.5.0
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510
 	github.com/gorilla/schema v1.4.1

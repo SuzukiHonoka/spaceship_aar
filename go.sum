@@ -1,7 +1,7 @@
 github.com/SuzukiHonoka/spaceship/v2 v2.0.16 h1:hr1W8nhZZZqXRdSCqo9O0qiDoV7tqG0rOOGIR5FZUoU=
 github.com/SuzukiHonoka/spaceship/v2 v2.0.16/go.mod h1:JKWfLyjD4tWFLMW+l8ca6YMiGSTra4tHSXatRH4cnz8=
-github.com/SuzukiHonoka/tun2socks/v2 v2.6.4 h1:SYGxfPZQpXx4tizJ2rLVLQqEX1OkYzsrHcHFN3n5Jbg=
-github.com/SuzukiHonoka/tun2socks/v2 v2.6.4/go.mod h1:L/zPfBzWkmApU/o7F+0U3l5OHwbW1iCAUUu3xF0uqik=
+github.com/SuzukiHonoka/tun2socks/v2 v2.6.5 h1:25PRLRaXlOcEY8AX6SZoI+uauZI4ofWFeAciEpnNY7c=
+github.com/SuzukiHonoka/tun2socks/v2 v2.6.5/go.mod h1:L/zPfBzWkmApU/o7F+0U3l5OHwbW1iCAUUu3xF0uqik=
 github.com/ajg/form v1.5.1 h1:t9c7v8JUKu/XxOGBU0yjNpaMloxGEJhUkqFRq0ibGeU=
 github.com/ajg/form v1.5.1/go.mod h1:uL1WgH+h2mgNtvBq0339dVnzXdBETtL2LeUXaIv25UY=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
