@@ -4,11 +4,11 @@ import (
 	"errors"
 	"fmt"
 	"net"
-	"net/netip"
 	"os/exec"
 	"sync"
 	"time"
 
+	"github.com/SuzukiHonoka/tun2socks/v2/core/adapter"
 	"github.com/SuzukiHonoka/tun2socks/v2/dns"
 	"github.com/docker/go-units"
 	"github.com/google/shlex"
@@ -39,6 +39,9 @@ type Engine struct {
 
 	// _defaultStack holds the default stack for the engine.
 	_defaultStack *stack.Stack
+
+	// _icmpHandler holds the custom ICMP handler for the engine.
+	_icmpHandler adapter.NetworkHandler
 }
 
 // Start starts the default engine up.
@@ -61,6 +64,13 @@ func (e *Engine) Stop() error {
 func (e *Engine) Insert(k *EngineKey) {
 	e._engineMu.Lock()
 	e._defaultKey = k
+	e._engineMu.Unlock()
+}
+
+// SetICMPHandler sets the custom ICMP handler for the default engine.
+func (e *Engine) SetICMPHandler(h adapter.NetworkHandler) {
+	e._engineMu.Lock()
+	e._icmpHandler = h
 	e._engineMu.Unlock()
 }
 
@@ -122,13 +132,12 @@ func (e *Engine) general(k *EngineKey) error {
 		if err != nil {
 			return err
 		}
-		dialer.DefaultDialer.InterfaceName.Store(iface.Name)
-		dialer.DefaultDialer.InterfaceIndex.Store(int32(iface.Index))
+		dialer.RegisterSockOpt(dialer.WithBindToInterface(iface))
 		log.Infof("[DIALER] bind to interface: %s", k.Interface)
 	}
 
 	if k.Mark != 0 {
-		dialer.DefaultDialer.RoutingMark.Store(int32(k.Mark))
+		dialer.RegisterSockOpt(dialer.WithRoutingMark(k.Mark))
 		log.Infof("[DIALER] set fwmark: %#x", k.Mark)
 	}
 
@@ -138,7 +147,10 @@ func (e *Engine) general(k *EngineKey) error {
 		}
 		tunnel.T().SetUDPTimeout(k.UDPTimeout)
 	}
-	tunnel.T().SetUDPDisabled(k.UDPDisabled)
+
+	if k.UDPDisabled {
+		tunnel.T().SetUDPDisabled(true)
+	}
 	return nil
 }
 
@@ -209,18 +221,18 @@ func (e *Engine) netstack(k *EngineKey) (err error) {
 		}
 	}()
 
+	multicastGroups, err := parseMulticastGroups(k.MulticastGroups)
+	if err != nil {
+		return err
+	}
+
 	if e._defaultProxy, err = parseProxy(k.Proxy); err != nil {
 		return
 	}
-	tunnel.T().SetDialer(e._defaultProxy)
+	tunnel.T().SetProxy(e._defaultProxy)
 
 	if e._defaultDevice, err = parseDevice(k.Device, uint32(k.MTU)); err != nil {
 		return
-	}
-
-	var multicastGroups []netip.Addr
-	if multicastGroups, err = parseMulticastGroups(k.MulticastGroups); err != nil {
-		return err
 	}
 
 	var opts []option.Option
@@ -247,16 +259,13 @@ func (e *Engine) netstack(k *EngineKey) (err error) {
 	if e._defaultStack, err = core.CreateStack(&core.Config{
 		LinkEndpoint:     e._defaultDevice,
 		TransportHandler: tunnel.T(),
+		ICMPHandler:      e._icmpHandler,
 		MulticastGroups:  multicastGroups,
 		Options:          opts,
 	}); err != nil {
 		return
 	}
 
-	log.Infof(
-		"[STACK] %s://%s <-> %s://%s",
-		e._defaultDevice.Type(), e._defaultDevice.Name(),
-		e._defaultProxy.Proto(), e._defaultProxy.Addr(),
-	)
+	log.Infof("[STACK] %s <-> %s", k.Device, k.Proxy)
 	return nil
 }
