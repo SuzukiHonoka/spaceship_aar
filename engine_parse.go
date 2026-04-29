@@ -12,6 +12,7 @@ import (
 	"github.com/SuzukiHonoka/tun2socks/v2/core/device/fdbased"
 	"github.com/SuzukiHonoka/tun2socks/v2/core/device/tun"
 	"github.com/SuzukiHonoka/tun2socks/v2/proxy"
+	_ "github.com/SuzukiHonoka/tun2socks/v2/proxy/socks5"
 )
 
 func parseRestAPI(s string) (*url.URL, error) {
