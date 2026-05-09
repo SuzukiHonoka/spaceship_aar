@@ -21,7 +21,7 @@ go get golang.org/x/mobile/bind
 
 Now, you can start binding this library.
 
-**Binding multi platform**
+**Binding multi-platform**
 ```bash
 gomobile bind -androidapi 29 -target "android/arm64,android/amd64" -ldflags "-s -w" .
 ```
